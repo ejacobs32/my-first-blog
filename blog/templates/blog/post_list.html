@@ -1,31 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Django Girls blog</title>
-    </head>
-    <body>
-        <header>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </header>
+{% extends 'blog/base.html' %}
 
-        {% for x in posts %}
-        <article>
-            <time>published: {{ x.published_date }}</time>
-            <h2><a href="">{{ x.title }}</a></h2>
-            <p>{{ x.text|linebreaksbr }}</p>
+{% block content %}
+    {% for post in posts %}
+        <article class="post">
+            <time class="date">
+                {{ post.published_date }}
+            </time>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
         </article>
-        {% endfor %}
-
-        <article>
-            <time>published: 7.13.2023, 3:22</time>
-            <h2><a href="">My first post</a></h2>
-            <p>Dangonrumpa.</p>
-        </article>
-
-        <article>
-            <time>published: 7.13.2023, 3:24</time>
-            <h2><a href="">My second post</a></h2>
-            <p>Coatatoreino. Head of ishitpor da escepor is exonarating with gonermormin.</p>
-        </article>
-    </body>
-</html>
+    {% endfor %}
+{% endblock %}
