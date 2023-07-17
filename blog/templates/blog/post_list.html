@@ -12,7 +12,7 @@
         <article>
             <time>published: {{ x.published_date }}</time>
             <h2><a href="">{{ x.title }}</a></h2>
-            <p>{{ x.text }}</p>
+            <p>{{ x.text|linebreaksbr }}</p>
         </article>
         {% endfor %}
 
